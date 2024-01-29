@@ -1,2 +1,6 @@
 export const DB_NAME = "farmer";
-export const defaultAvatar = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+export const defaultAvatar = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+export const cookieOptions = {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+}
