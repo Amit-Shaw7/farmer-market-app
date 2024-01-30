@@ -3,4 +3,4 @@ export const defaultAvatar = "https://cdn.pixabay.com/photo/2015/10/05/22/37/bla
 export const cookieOptions = {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-}
+};
