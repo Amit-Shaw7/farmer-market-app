@@ -2,55 +2,61 @@ import mongoose from "mongoose";
 
 const ProductSchema = new mongoose.Schema(
     {
-        name : {
-            type : String,
-            required : true,
-            trim : true,
+        name: {
+            type: String,
+            required: true,
+            trim: true,
         },
-        description : {
-            type : String,
-            required : true,
-            trim : true,
+        description: {
+            type: String,
+            required: true,
+            trim: true,
         },
-        price : {
-            type : Number,
-            required : true,
+        price: {
+            type: Number,
+            required: true,
         },
-        picture : [
+        picture: [
             {
-                type : String,
-                trim : true
+                type: String,
+                trim: true
             }
         ],
-        sellerId : {
-            type : mongoose.Schema.Types.ObjectId,
-            ref : "User",
-            required : true,
+        sellerId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+            required: true,
         },
-        sellerName : {
-            type : String,
-            trim : true,
+        sellerName: {
+            type: String,
+            trim: true,
         },
-        category : {
-            type : String,
-            required : true,
-            trim : true,
-            enum : ["Machines" , "Equipments" , "Seeds" , "Fertilizers" , "Pesticides" , "Fruits" , "Vegetables" , "Animals" , "Cereals" , "Diary"],
+        sellerType: {
+            type: String,
+            required: true,
+            trim: true,
+            enum: ["FARMER", "DEALER", "SHOPKEEPER"],
         },
-        stock:{
-            type : Number,
-            required : true,
+        category: {
+            type: String,
+            required: true,
+            trim: true,
+            enum: ["Machines", "Equipments", "Seeds", "Fertilizers", "Pesticides", "Fruits", "Vegetables", "Animals", "Cereals", "Diary"],
         },
-        keyFeatures : [
+        stock: {
+            type: Number,
+            required: true,
+        },
+        keyFeatures: [
             {
-                type : String,
-                trim : true
+                type: String,
+                trim: true
             }
         ]
     },
     {
-        timestamps : true
+        timestamps: true
     }
 );
 
-export const Product = mongoose.model("Product" , ProductSchema);
+export const Product = mongoose.model("Product", ProductSchema);

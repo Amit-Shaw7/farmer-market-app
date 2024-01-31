@@ -1,6 +1,6 @@
 import express from "express";
 import validateOtp from "../controllers/otp/validateOtp.controller.js";
-import validateData from "../middlewares/validate.middleware.js";
+import validateData from "../middlewares/validateData.middleware.js";
 import ValidateOtpSchema from "../schemas/otp/validateOtp.schema.js";
 
 const router = express.Router();

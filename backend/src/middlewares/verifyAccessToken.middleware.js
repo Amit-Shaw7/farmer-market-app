@@ -15,6 +15,7 @@ const verifyToken = asyncHandler(async (req, res, next) => {
     }
 
     req.userId = userId;
+    req.role = decodedToken.role
     next();
 });
 
