@@ -8,8 +8,9 @@ const login = asyncHandler(async (req, res, next) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-    console.log("running");
     if (!user) throw new ApiError(404, "User does not exists");
+    
+    if(!user.isVerified) throw new ApiError(401 , "Email not verified");
 
     const isPasswordValid = await user.isPasswordCorrect(password);
     if (!isPasswordValid) throw new ApiError(401, "Invalid email or password");

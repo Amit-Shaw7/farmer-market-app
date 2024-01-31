@@ -10,21 +10,19 @@ const signup = asyncHandler(async (req, res, next) => {
     const { name, email, password } = req.body;
 
     const userExists = await User.findOne({ email });
-    if (userExists) {
-        throw new ApiError(400, "User already exists");
-    }
+    if (userExists) throw new ApiError(400, "User already exists");
 
     const user = await User.create({ name, email, password });
 
     const otp = generateOTP();
     await Otp.create({ userId: user._id, otp });
+
     const html = `
         <div>
             <h1>Thanks for joining us</h1>
             <h3>This is your OTP ${otp}</h3>
         </div>
     `;
-    
     sendMail(email, "OTP Verification", html);
 
     const status = 201;

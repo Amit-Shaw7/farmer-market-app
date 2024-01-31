@@ -1,5 +1,5 @@
 import express from "express";
-import verifyToken from "../middlewares/verifyToken.middleware.js";
+import verifyToken from "../middlewares/verifyAccessToken.middleware.js";
 import getProfile from "../controllers/user/getProfile.controller.js";
 import updateProfile from "../controllers/user/updateProfile.js";
 

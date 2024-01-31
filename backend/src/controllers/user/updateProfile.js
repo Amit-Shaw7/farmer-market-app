@@ -14,9 +14,7 @@ const updateProfile = asyncHandler(async (req, res, next) => {
         new: true
     });
 
-    if (!user) {
-        throw new ApiError(404, "User not found");
-    }
+    if (!user) throw new ApiError(404, "User not found");
 
     const status = 200;
     return res.status(status).json(
