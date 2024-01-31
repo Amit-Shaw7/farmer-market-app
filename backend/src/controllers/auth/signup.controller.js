@@ -15,7 +15,11 @@ const signup = asyncHandler(async (req, res, next) => {
     const user = await User.create({ name, email, password });
 
     const otp = generateOTP();
-    await Otp.create({ userId: user._id, otp });
+    await Otp.create({
+        userId: user._id,
+        otp,
+        email
+    });
 
     const html = `
         <div>
