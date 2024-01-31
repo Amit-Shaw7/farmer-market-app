@@ -1,3 +1,4 @@
+import { Cart } from "../../models/cart.model.js";
 import { Otp } from "../../models/otp.model.js";
 import { User } from "../../models/user.model.js";
 import ApiError from "../../utils/apiError.js";
@@ -18,11 +19,19 @@ const validateOtp = asyncHandler(async (req, res, next) => {
     const user = await User.findById(userId);
     if (!user) throw new ApiError(404, "User does not exist");
 
+    const cart = await Cart.create({
+        userId: user._id,
+        products: [],
+    });
+
     user.isVerified = true;
+    user.cartId = cart._id;
+    
     await user.save();
 
     Otp.deleteMany({ userId: id });
     const status = 200;
+    
 
     return res.status(status).json(
         new ApiResponse(status, user, "OTP verified successfully")
