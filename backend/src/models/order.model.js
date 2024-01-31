@@ -1,20 +1,6 @@
 import mongoose from "mongoose";
 import AddressSchema from "../schemas/addressSchema";
 
-const EachProductSchema = new mongoose.Schema(
-    {
-        _id: false,
-        productId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Product",
-            required: true,
-        },
-        firstProductpicture: {
-            type: string,
-            required: true,
-        },
-    }
-)
 
 const OrderSchema = new mongoose.Schema(
     {
@@ -25,7 +11,7 @@ const OrderSchema = new mongoose.Schema(
         },
         products: [
             {
-                type: EachProductSchema,
+                type: mongoose.Schema.Types.ObjectId,
                 required: true,
             }
         ],
@@ -37,13 +23,11 @@ const OrderSchema = new mongoose.Schema(
             type: Number,
             default: 0
         },
-        taxes: {
-            type: Number,
-        },
         orderStatus : {
             type: String,
             default: "Pending",
-            enum : ["Pending" , "Delivered" , "Cancelled"],
+            enum : ["Pending" ,"Approved" , "Delivered" , "Cancelled"],
+            default : "Pending"
         },
         deliveredAt : {
             type: Date,
