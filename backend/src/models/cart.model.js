@@ -26,6 +26,7 @@ const EachProductSchema = new mongoose.Schema(
         quantity: {
             type: Number,
             required: true,
+            default : 1
         },
     }
 )
@@ -51,10 +52,6 @@ const CartSchema = new mongoose.Schema(
             type: Number,
             default: 0
         },
-        taxes: {
-            type: Number,
-            default: 0
-        }
     },
     {
         timestamps: true

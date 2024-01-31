@@ -1,4 +1,5 @@
 import ApiError from "../utils/apiError.js";
+import asyncHandler from "../utils/asyncHandler.js";
 
 const isSeller = asyncHandler(async (req, res, next) => {
     const { role } = req;

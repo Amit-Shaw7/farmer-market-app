@@ -2,7 +2,7 @@ import { Product } from "../../models/product.model.js";
 import ApiError from "../../utils/apiError.js";
 import ApiResponse from "../../utils/apiResponse.js";
 import asyncHandler from "../../utils/asyncHandler.js";
-import isCategoryValid from "../../utils/isCategoryValid.js";
+import isCategoryValid from "../../helpers/isCategoryValid.js";
 import isIDGood from "../../utils/isIdGood.js";
 
 const updateProduct = asyncHandler(async (req, res, next) => {

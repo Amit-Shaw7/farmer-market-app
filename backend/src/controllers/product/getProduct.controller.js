@@ -1,5 +1,5 @@
 import { Product } from "../../models/product.model.js";
-import ApiError from "../../utils/apiError";
+import ApiError from "../../utils/apiError.js";
 import asyncHandler from "../../utils/asyncHandler.js";
 import isIDGood from "../../utils/isIdGood.js";
 

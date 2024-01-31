@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { ALLOWED_CATEGORIES } from '../../constants';
+import { ALLOWED_CATEGORIES } from '../../constants.js';
 
 const AddProductSchema = z.object({
     name: z
@@ -18,7 +18,7 @@ const AddProductSchema = z.object({
         .number({
             required_error: 'Price is required',
         })
-        .minValue(10, 'Price cannot be less than 10'),
+        .min(10, 'Price cannot be less than 10'),
     category: z
         .string({
             required_error: 'Category is required',
@@ -32,7 +32,7 @@ const AddProductSchema = z.object({
         .number({
             required_error: 'Stock is required',
         })
-        .minValue(1, 'Stock cannot be less than 1'),
+        .min(1, 'Stock cannot be less than 1'),
 
 });
 
