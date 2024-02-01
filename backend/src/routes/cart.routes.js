@@ -26,7 +26,7 @@ router.get(
     "/cart",
     verifyToken,
     getCart
-)
+);
 
 
 
