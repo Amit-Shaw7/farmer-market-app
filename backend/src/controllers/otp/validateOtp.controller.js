@@ -26,13 +26,11 @@ const validateOtp = asyncHandler(async (req, res, next) => {
 
     user.isVerified = true;
     user.cartId = cart._id;
-    
-    await user.save();
 
-    Otp.deleteMany({ userId: id });
+    Otp.deleteMany({ userId });
     const status = 200;
     
-
+    await user.save();
     return res.status(status).json(
         new ApiResponse(status, user, "OTP verified successfully")
     );
