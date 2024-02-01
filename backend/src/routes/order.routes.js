@@ -1,8 +1,7 @@
 import express from "express";
-import validateData from "../middlewares/validateData.middleware";
-import verifyToken from "../middlewares/verifyAccessToken.middleware";
-import createOrder from "../controllers/order/createOrder.controller";
-import cancelOrder from "../controllers/order/cancelOrder.controller";
+import verifyToken from "../middlewares/verifyAccessToken.middleware.js";
+import createOrder from "../controllers/order/createOrder.controller.js";
+import cancelOrder from "../controllers/order/cancelOrder.controller.js";
 
 const router = express.Router();
 

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import AddressSchema from "../schemas/addressSchema";
+import AddressSchema from "../schemas/addressSchema.js";
 
 
 const OrderSchema = new mongoose.Schema(
@@ -23,21 +23,21 @@ const OrderSchema = new mongoose.Schema(
             type: Number,
             default: 0
         },
-        orderStatus : {
+        orderStatus: {
             type: String,
             default: "Pending",
-            enum : ["Pending" ,"Approved" , "Delivered" , "Cancelled"],
-            default : "Pending"
+            enum: ["Pending", "Approved", "Delivered", "Cancelled"],
+            default: "Pending"
         },
-        deliveredAt : {
+        deliveredAt: {
             type: Date,
         },
         shippingDetails: {
             type: AddressSchema,
         },
-        paymentInfo : {
-            type : mongoose.Schema.Types.ObjectId, // for razorpay
-            ref : "Payment"
+        paymentInfo: {
+            type: mongoose.Schema.Types.ObjectId, // for razorpay
+            ref: "Payment"
         }
     },
     {

@@ -1,10 +1,10 @@
 import express from "express";
-import validateData from "../middlewares/validateData.middleware";
-import AddItemSchema from "../schemas/cart/addItem.schema";
-import verifyToken from "../middlewares/verifyAccessToken.middleware"
-import addItemToCart from "../controllers/cart/addItemToCart.controller";
-import removeItemFromCart from "../controllers/cart/removeItemFromCart.controller";
-import getCart from "../controllers/cart/getCart.controller";
+import validateData from "../middlewares/validateData.middleware.js";
+import AddItemSchema from "../schemas/cart/addItem.schema.js";
+import verifyToken from "../middlewares/verifyAccessToken.middleware.js"
+import addItemToCart from "../controllers/cart/addItemToCart.controller.js";
+import removeItemFromCart from "../controllers/cart/removeItemFromCart.controller.js";
+import getCart from "../controllers/cart/getCart.controller.js";
 
 const router = express.Router();
 
