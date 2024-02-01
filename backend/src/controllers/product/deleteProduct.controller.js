@@ -11,9 +11,10 @@ const deleteProduct = asyncHandler(async (req, res, next) => {
     const product = await Product.findById(productId);
     if(!product) throw new ApiError(404, "Product not found");
 
-    if(product.sellerId !== userId) throw new ApiError(401, "You can only delete your products");
+    console.log();
+    if(!product.sellerId.equals(userId)) throw new ApiError(401, "You can only delete your products");
 
-    const deleted = product.deleteOne();
+    const deleted = await Product.findByIdAndDelete(product._id);
     if(!deleted) throw new ApiError(400, "Cannot delete product try again later");
 
     const status = 200;

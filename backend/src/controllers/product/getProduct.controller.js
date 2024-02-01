@@ -1,10 +1,11 @@
 import { Product } from "../../models/product.model.js";
 import ApiError from "../../utils/apiError.js";
+import ApiResponse from "../../utils/apiResponse.js";
 import asyncHandler from "../../utils/asyncHandler.js";
 import isIDGood from "../../utils/isIdGood.js";
 
 const getProduct = asyncHandler(async (req, res, next) => {
-    const productId = isIDGood(req.params.productId);
+    const productId = await isIDGood(req.params.productId);
     
     const product = await Product.findById(productId);
     if (!product) throw new ApiError(404, "Product not found");

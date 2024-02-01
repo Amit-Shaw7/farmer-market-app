@@ -23,10 +23,11 @@ const AddProductSchema = z.object({
         .string({
             required_error: 'Category is required',
         })
-        .refine((value) => {
-            ALLOWED_CATEGORIES.includes(value), {
-                message: 'Invalid category'
+        .transform(value => {
+            if (!ALLOWED_CATEGORIES.includes(value)) {
+                throw new Error('Invalid category. Allowed categories are: dairy, seeds, equipment.');
             }
+            return value;
         }),
     stock: z
         .number({

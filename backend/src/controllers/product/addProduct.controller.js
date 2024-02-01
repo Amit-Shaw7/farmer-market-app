@@ -7,12 +7,13 @@ import isCategoryValid from "../../helpers/isCategoryValid.js";
 import isIDGood from "../../utils/isIdGood.js";
 
 const addProduct = asyncHandler(async (req, res, next) => {
+    console.log("Ad product running");
     const { name:sellerName, role } = req;
     const { category } = req.body;
     const userId = await isIDGood(req.userId);
 
     const categoryValid = isCategoryValid(category, role);
-    if(!categoryValid) throw new ApiError(401, `You cannot sell ${category}s`);
+    if(!categoryValid) throw new ApiError(401, `You cannot sell ${category}`);
 
     const user = await User.findById(userId);
     if (!user) throw new ApiError(404, "User not found");

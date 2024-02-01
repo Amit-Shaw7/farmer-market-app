@@ -4,7 +4,7 @@ import asyncHandler from "../../utils/asyncHandler.js";
 
 const getProductsWhenAuthenticationNotDone = asyncHandler(async (req, res, next) => {
     const products = await Product.find({
-        sellerType: { $in: ['Shopkeeper'] }
+        sellerType: { $in: ['FARMER'] }
     });
 
     const status = 200;

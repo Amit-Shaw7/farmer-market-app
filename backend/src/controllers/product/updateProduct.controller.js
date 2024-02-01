@@ -12,15 +12,15 @@ const updateProduct = asyncHandler(async (req, res, next) => {
     const userId = await isIDGood(req.userId);
     const productId = await isIDGood(req.params.productId);
 
-    const product = await Product.findById(productId);
-    if (!product) throw new ApiError(404, "Product not found");
+    let productExists = await Product.findById(productId);
+    if (!productExists) throw new ApiError(404, "Product not found");
 
-    if (product.sellerId !== userId) throw new ApiError(401, "You can only update your products");
+    if (!productExists.sellerId.equals(userId)) throw new ApiError(401, "You can only update your products");
 
     const categoryValid = category ? isCategoryValid(category, role) : true;
     if (!categoryValid) throw new ApiError(401, `You cannot sell ${category}s`);
 
-    await Product.findByIdAndUpdate(productId, {
+    const product = await Product.findByIdAndUpdate(productId, {
         ...req.body,
     } , {new : true});
 

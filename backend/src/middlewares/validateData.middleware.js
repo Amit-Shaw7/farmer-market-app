@@ -10,7 +10,7 @@ const validateData = (schema) => (req, res, next) => {
         next();
     } catch (error) {
         console.log("error occured in vaildator");
-        console.log(error);
+        console.log(error.errors);
         throw new ApiError(500, error.errors)
     }
 };

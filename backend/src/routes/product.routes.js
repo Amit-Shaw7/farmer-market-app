@@ -20,20 +20,6 @@ router.post(
     addProduct
 );
 
-router.put(
-    "/update/:id",
-    verifyToken,
-    isSeller,
-    updateProduct
-);
-
-router.delete(
-    "/delete/:id",
-    verifyToken,
-    isSeller,
-    deleteProduct
-);
-
 router.get(
     "/all",
     verifyToken,
@@ -46,8 +32,22 @@ router.get(
 );
 
 router.get(
-    "/:id",
+    "/:productId",
     getProduct
-)
+);
+
+router.put(
+    "/:productId",
+    verifyToken,
+    isSeller,
+    updateProduct
+);
+
+router.delete(
+    "/:productId",
+    verifyToken,
+    isSeller,
+    deleteProduct
+);
 
 export default router;

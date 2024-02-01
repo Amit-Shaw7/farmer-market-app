@@ -1,4 +1,5 @@
 import { Product } from "../../models/product.model.js";
+import ApiResponse from "../../utils/apiResponse.js";
 import asyncHandler from "../../utils/asyncHandler.js";
 import isIDGood from "../../utils/isIdGood.js";
 
@@ -8,24 +9,24 @@ const getProductsWhenAuthenticationDone = asyncHandler(async (req, res, next) =>
 
     let products = [];
 
-    if (role === 'Farmer') {
+    if (role === 'SHOPKEEPER') {
         // Only show products added by Shopkeepers
         products = await Product.find({ 
-            sellerType: { $in: ['Shopkeeper'] } 
+            sellerType: { $in: ['FARMER'] } 
         }).exec();
     } 
     
-    else if (role === 'Shopkeeper') {
+    else if (role === 'FARMER') {
         // Show products added by Dealers and Shopkeepers
         products = await Product.find({
-            addedBy: { $in: ['Dealer', 'Shopkeeper'] }
+            sellerType: { $in: ['DEALER', 'FARMER'] }
         }).exec();
     } 
     
-    else if (role === 'Dealer') {
+    else if (role === 'DEALER') {
         // Only show products added by Dealers
         products = await Product.find({ 
-            addedBy: { $in: ['Dealer'] } 
+            sellerType: { $in: ['DEALER'] } 
         }).exec();
     } 
     

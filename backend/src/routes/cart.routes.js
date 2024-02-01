@@ -1,6 +1,7 @@
 import express from "express";
 import validateData from "../middlewares/validateData.middleware.js";
-import AddItemSchema from "../schemas/cart/addItem.schema.js";
+import RemoveItemSchema from "../schemas/cart/addItem.schema.js";
+import AddItemSchema from "../schemas/cart/removeItem.schema.js";
 import verifyToken from "../middlewares/verifyAccessToken.middleware.js"
 import addItemToCart from "../controllers/cart/addItemToCart.controller.js";
 import removeItemFromCart from "../controllers/cart/removeItemFromCart.controller.js";
@@ -18,12 +19,12 @@ router.post(
 router.put(
     "/removeFromCart",
     verifyToken,
-    validateData(AddItemSchema),
+    validateData(RemoveItemSchema),
     removeItemFromCart
 );
 
 router.get(
-    "/cart",
+    "/",
     verifyToken,
     getCart
 );
