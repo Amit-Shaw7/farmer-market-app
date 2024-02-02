@@ -21,7 +21,7 @@ const addItemToCart = asyncHandler(async (req, res, next) => {
         name: product.name,
         price: product.price,
         quantity,
-        pictures : product.pictures[0]
+        pictures: product.pictures[0]
     });
 
     const currentItemTotalPrice = quantity * product.price;
@@ -34,7 +34,7 @@ const addItemToCart = asyncHandler(async (req, res, next) => {
     await cart.save();
 
     return res.status(200).json(
-        new ApiResponse(200, null, "Item added to cart successfully")
+        new ApiResponse(200, product, "Item added to cart successfully")
     )
 });
 

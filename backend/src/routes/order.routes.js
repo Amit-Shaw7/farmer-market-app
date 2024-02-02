@@ -2,18 +2,20 @@ import express from "express";
 import verifyToken from "../middlewares/verifyAccessToken.middleware.js";
 import createOrder from "../controllers/order/createOrder.controller.js";
 import cancelOrder from "../controllers/order/cancelOrder.controller.js";
+import validateData from "../middlewares/validateData.middleware.js"
+import CancelOrderSchema from "../schemas/order/cancelOrder.schema.js.js";
 
 const router = express.Router();
 
 router.post(
-    "createorder",
-    // validateData()
+    "/createorder",
     verifyToken,
     createOrder
 );
 
 router.put(
-    "cancelorder",
+    "/cancelorder/:orderId",
+    validateData(CancelOrderSchema),
     verifyToken,
     cancelOrder
 )

@@ -5,9 +5,7 @@ import asyncHandler from "../utils/asyncHandler.js";
 const verifyToken = asyncHandler(async (req, res, next) => {
     console.log("Running verifyToken");
     const token = req.cookies?.FMA_AccessToken || req.header("Authorization")?.replace("Bearer ", "");
-    if (!token) {
-        return new ApiError(401, "Unauthorized");
-    }
+    if (!token) throw new ApiError(401, "Unauthorized");
 
     const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
     const userId = decodedToken._id;

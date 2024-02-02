@@ -11,6 +11,8 @@ const cancelOrder = asyncHandler(async (req , res , next) => {
     const order = await Order.findById(orderId);
     if(!order) throw new ApiError(404 , "Cannot find order");
 
+    if(!order.userId.equals(userId)) throw new ApiError(401 , "You can only cancel your orders only");
+
     order.orderStatus = "Cancelled";
     await order.save();
 
