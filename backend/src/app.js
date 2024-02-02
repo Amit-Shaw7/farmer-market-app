@@ -14,6 +14,7 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 app.use("/api/v1", MainRouter);
+app.use("/api/development", MainRouter);
 
 app.use(globalError);
 

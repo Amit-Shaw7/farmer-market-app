@@ -8,7 +8,7 @@ import ApiResponse from "../../utils/apiResponse.js";
 const addItemToCart = asyncHandler(async (req, res, next) => {
     const userId = await isIDGood(req.userId);
     const productId = await isIDGood(req.body.productId);
-    const { quantity } = req.body;
+    const quantity = req.body.quantity || 1;
 
     const product = await Product.findById(productId);
     if (!product) throw new ApiError(404, "Product not found");

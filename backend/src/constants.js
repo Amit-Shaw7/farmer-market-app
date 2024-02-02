@@ -6,6 +6,6 @@ export const cookieOptions = {
 };
 export const MAX_FILE_SIZE = 500000;
 export const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp",];
-export const ALLOWED_CATEGORIES = ["Machines", "Equipments", "Seeds", "Fertilizers", "Pesticides", "Fruits", "Vegetables", "Animals", "Cereals", "Diary"];
-export const ALLOWED_CATEGORIES_FOR_DEALER = ["Machines", "Equipments", "Seeds", "Fertilizers", "Pesticides"];
-export const ALLOWED_CATEGORIES_FOR_FARMER = ["Fruits", "Vegetables", "Animals", "Cereals", "Diary"];
+export const ALLOWED_CATEGORIES = ["MACHINES", "EQUIPMENTS", "SEEDS", "FERTILIZERS", "PESTICIDES", "FRUITS", "VEGETABLES", "ANIMALS", "CEREALS", "DIARY"];
+export const ALLOWED_CATEGORIES_FOR_DEALER = ["MACHINES" , "EQUIPMENTS", "SEEDS", "FERTILIZERS", "PESTICIDES"];
+export const ALLOWED_CATEGORIES_FOR_FARMER = ["FRUITS", "VEGETABLES", "ANIMALS", "CEREALS", "DIARY"];

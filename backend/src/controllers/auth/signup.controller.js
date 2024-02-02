@@ -27,7 +27,7 @@ const signup = asyncHandler(async (req, res, next) => {
             <h3>This is your OTP ${otp}</h3>
         </div>
     `;
-    sendMail(email, "OTP Verification", html);
+    // sendMail(email, "OTP Verification", html);
 
     const status = 201;
     return res.status(status).json(

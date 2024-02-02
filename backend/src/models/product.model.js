@@ -41,7 +41,7 @@ const ProductSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
-            enum: ["Machines", "Equipments", "Seeds", "Fertilizers", "Pesticides", "Fruits", "Vegetables", "Animals", "Cereals", "Diary"],
+            enum: ["MACHINES" , "EQUIPMENTS" , "SEEDS" , "FERTILIZERS" , "PESTICIDES" , "FRUITS" , "VEGETABLES" , "ANIMALS" , "CEREALS" , "DIARY"],
         },
         stock: {
             type: Number,

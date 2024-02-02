@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { ALLOWED_CATEGORIES } from '../../constants.js';
+import ApiError from '../../utils/apiError.js';
 
 const AddProductSchema = z.object({
     name: z
@@ -25,7 +26,7 @@ const AddProductSchema = z.object({
         })
         .transform(value => {
             if (!ALLOWED_CATEGORIES.includes(value)) {
-                throw new Error('Invalid category. Allowed categories are: dairy, seeds, equipment.');
+                throw new ApiError('Invalid category. Allowed categories are: dairy, seeds, equipment.');
             }
             return value;
         }),

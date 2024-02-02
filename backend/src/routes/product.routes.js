@@ -33,6 +33,7 @@ router.get(
 
 router.get(
     "/:productId",
+    verifyToken,
     getProduct
 );
 

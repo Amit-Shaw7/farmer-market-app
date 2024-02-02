@@ -12,7 +12,7 @@ const LoginSchema = z.object({
         .string({
             required_error: 'Password is required',
         })
-        .min(1, 'Password cannot be empty')
+        .min(6, 'Password must be at least 6 characters long'),
 });
 
 export default LoginSchema;

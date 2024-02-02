@@ -16,9 +16,9 @@ const removeItemFromCart = asyncHandler(async (req, res, next) => {
     const cart = await Cart.findOne({ userId });
     if (!cart) throw new ApiError(404, "Cart not found");
 
-    console.log(cart.products);
     const deletedProduct = cart.products.find((product) => product.productId.equals(productId) === true);
-    console.log(deletedProduct);
+    if(!deletedProduct) throw new ApiError(404, "Product not found in cart");
+
     const quantity = deletedProduct.quantity;
 
     const currentItemTotalPrice = quantity * product.price;

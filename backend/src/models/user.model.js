@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema(
         role: {
             type: String,
             enum: ["FARMER", "DEALER", "SHOPKEEPER"],
-            default: "FARMER"
+            default: "SHOPKEEPER"
         },
         businessDocument: {
             type: String, // will be in use only in role != FARMMER

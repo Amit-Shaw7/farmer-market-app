@@ -16,6 +16,8 @@ const validateOtp = asyncHandler(async (req, res, next) => {
     const otpVerified = (otp === otpExists.otp);
     if (!otpVerified) throw new ApiError(400, "OTP is incorrect");
 
+    if(otpExists.expiresAt < Date.now()) throw new ApiError(400, "OTP expired");
+
     const user = await User.findById(userId);
     if (!user) throw new ApiError(404, "User does not exist");
 
@@ -27,7 +29,7 @@ const validateOtp = asyncHandler(async (req, res, next) => {
     user.isVerified = true;
     user.cartId = cart._id;
 
-    Otp.deleteMany({ userId });
+    await Otp.findByIdAndDelete(otpExists._id);
     const status = 200;
     
     await user.save();

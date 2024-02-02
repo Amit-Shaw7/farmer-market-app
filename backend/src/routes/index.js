@@ -6,6 +6,8 @@ import ProductRouter from "./product.routes.js";
 import CartRouter from "./cart.routes.js";
 import OrderRouter from "./order.routes.js";
 import PaymentRouter from "./payment.routes.js";
+import DeveloppmentRouter from "../developmentonly/routes/development.routes.js";
+
 
 const router = express.Router();
 
@@ -16,5 +18,6 @@ router.use("/product", ProductRouter);
 router.use("/cart", CartRouter);
 router.use("/order", OrderRouter);
 router.use("/payment", PaymentRouter);
+router.use("/development", DeveloppmentRouter);
 
 export default router;
