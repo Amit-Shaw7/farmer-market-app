@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Montserrat, Roboto } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const roboto = Montserrat({
   subsets: ["latin"],
@@ -20,7 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
+        <Navbar />
         {children}
+        <ScrollToTop />
+        <Footer />
       </body>
     </html>
   );

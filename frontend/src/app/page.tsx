@@ -1,9 +1,11 @@
-import {Navbar} from "@/components/Navbar";
+import Container from "@/components/Container"
 
 export default function Home() {
   return (
-    <main className="h-[50vh] w-full">
-      <Navbar />
+    <main className="w-full">
+      <Container>
+        <div className="h-[120vh] w-full">content</div>
+      </Container>
     </main>
   );
-}
+};

@@ -1,5 +1,3 @@
-import {ShoppingCart} from "lucide-react";
-
 export const categories = [
     {
         img: "https://source.unsplash.com/random/50×50",

@@ -5,11 +5,11 @@ import { ShoppingCart } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Logo from "@/components/Logo";
 import Search from "@/components/Search";
-
+import Container from "./Container";
 
 const Navbar = () => {
     return (
-        <div className="h-[70px] px-4 md:px-12 flex items-center w-full justify-between shadow">
+        <Container className="backdrop-blur-lg bg-transparent h-[70px] flex items-center w-full justify-between shadow sticky top-0 z-10">
             <Logo />
 
             <div className="w-[500px] hidden lg:flex">
@@ -27,8 +27,7 @@ const Navbar = () => {
                     </Avatar>
                 </Link>
             </div>
-
-        </div>
+        </Container>
     )
 };
 

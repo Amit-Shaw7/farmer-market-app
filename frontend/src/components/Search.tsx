@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Search as SearchIcon } from "lucide-react";
 
 const Search = () => {
   return (
@@ -11,11 +12,11 @@ const Search = () => {
         value="helllo"
       />
       <Button
-        variant="default"
+        variant="ghost"
         size="default"
-        className="rounded-r-sm rounded-l-none"
+        className="rounded-r-sm rounded-l-none border-l"
       >
-        Search
+        <SearchIcon className="h-5 w-5" />
       </Button>
 
     </div>
