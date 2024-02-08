@@ -1,9 +1,8 @@
 import React from "react";
+import Image from "next/image";
 import Logo from "@/components/Logo";
 import Container from "@/components/Container";
-import { socialLinks } from "@/mocks/sociallinks";
-import Image from "next/image";
-import { footerLinks } from "@/mocks/footerLinks";
+import { footerLinks, socialLinks } from "@/constants/links";
 
 const Footer = () => {
   return (
@@ -44,6 +43,7 @@ const Footer = () => {
         </div>
 
 
+        {/* Footer links */}
         {
           footerLinks.map((link) => (
             <div
@@ -65,31 +65,6 @@ const Footer = () => {
             </div>
           ))
         }
-
-
-        {/* <div>
-          legal
-
-          <ul>
-            <li>terms and condtion </li>
-            <li>Privacy policy</li>
-            <li>copyright</li>
-          </ul>
-        </div>
-
-
-        <div>
-          Contact Info
-
-          <ul>
-            <li>
-              emial
-            </li>
-
-            <li>address</li>
-            <li></li>
-          </ul>
-        </div> */}
       </div>
     </Container>
   );
