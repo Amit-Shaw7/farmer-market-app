@@ -1,17 +1,17 @@
-import * as React from "react"
+import * as React from "react";
 
-// import { Card, CardContent } from "@/components/ui/card"
+// import { Card, CardContent } from "@/components/ui/card";
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-} from "@/components/ui/carousel"
-import Container from "@/components/Container"
-import Image from "next/image"
+} from "@/components/ui/carousel";
+import Container from "@/components/Container";
+import Image from "next/image";
 
-export function CarouselDemo() {
+const HomeCarousel = () => {
     return (
         <div>
             <Carousel className="mt-10">
@@ -34,5 +34,7 @@ export function CarouselDemo() {
                 <CarouselNext className="absolute top-1/2 -translate-y-1/2 right-8" />
             </Carousel>
         </div>
-    )
-}
+    );
+};
+
+export default HomeCarousel;

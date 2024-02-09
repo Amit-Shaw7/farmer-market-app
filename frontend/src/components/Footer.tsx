@@ -3,6 +3,7 @@ import Image from "next/image";
 import Logo from "@/components/Logo";
 import Container from "@/components/Container";
 import { footerLinks, socialLinks } from "@/constants/links";
+import BrandName from "./BrandName";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
       {/* Logo and name */}
       <div className="w-full flex items-center gap-4">
         <Logo />
-        <span className="tracking-wide">AGROW</span>
+        <BrandName/>
       </div>
 
 

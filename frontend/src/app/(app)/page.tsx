@@ -1,6 +1,7 @@
 import Container from "@/components/Container";
-import { CarouselDemo } from "@/sections/home/Carousel";
+import HomeCarousel from "@/sections/home/Carousel";
 import Categories from "@/sections/home/Categories";
+import Products from "@/sections/home/Products";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
 
       <Container className="mt-10 flex flex-col gap-10">
         <Categories className="lg:px-18 md:px-10" />
+        <Products title="Some title"/>
       </Container>
     </main>
   );

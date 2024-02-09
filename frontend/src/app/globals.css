@@ -48,6 +48,12 @@
     --ring: 20.5 90.2% 48.2%;
   }
 }
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
  
 @layer base {
   * {

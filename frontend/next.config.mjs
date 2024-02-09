@@ -9,7 +9,15 @@ const nextConfig = {
             {
                 protocol : "https",
                 hostname: "cdn.grofers.com",
-            }
+            },
+            {
+                protocol : "https",
+                hostname: "example.com",
+            },
+            {
+                protocol : "https",
+                hostname: "www.thespruceeats.com",
+            },
         ],
     }
 };
