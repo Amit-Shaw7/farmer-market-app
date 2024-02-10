@@ -1,7 +1,7 @@
 "use client"
 import { Card } from "@/components/ui/card";
 import loginSchema from "@/schemas/login.schema";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,8 +9,11 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Eye, EyeIcon } from "lucide-react";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showOutline, setShowOutline] = useState(false);
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -18,6 +21,14 @@ const Login = () => {
       password: ""
     },
   });
+
+  const togglePasswordState = (): void => {
+    setShowPassword((password) => !password);
+  }
+
+  const toggleStyle = (val: boolean): void => {
+    setShowOutline(val);
+  }
 
   const onSubmit = async (values: z.infer<typeof loginSchema>) => {
     // Do something with the form values.
@@ -42,23 +53,50 @@ const Login = () => {
                     <FormControl>
                       <Input placeholder="hello@example.com" {...field} />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-xs" />
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input type="password" placeholder="shadcn" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <div className="flex flex-col gap-2">
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Password</FormLabel>
+                      <FormControl>
+                        <div
+                          onFocusCapture={() => toggleStyle(true)}
+                          onBlur={() => toggleStyle(false)}
+                          className={`transition-colors flex items-center border rounded-md border-input outline-none ${showOutline ? "ring-1 ring-primary" : "outline-none"}`}
+                        >
+                          <Input
+                            type={showPassword ? "text" : "password"}
+                            placeholder="*****"
+                            {...field}
+                            className="border-0 outline-none focus-visible:ring-0"
+                          />
+                          <Button
+                            onClick={togglePasswordState}
+                            type="button"
+                            variant="outline"
+                            className="border-none outline-none focus-visible:ring-0"
+                          >
+                            <EyeIcon className=" py-1" />
+                          </Button>
+                        </div>
+                      </FormControl>
+                      <FormMessage className="text-xs" />
+                    </FormItem>
+                  )}
+                />
+                <Link
+                  href="forgetpassword"
+                  className="text-xs text-right w-full"
+                >
+                  Forgot password?
+                </Link>
+              </div>
             </div>
             <div className="flex items-center flex-col gap-4 my-8">
               <Button

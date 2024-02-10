@@ -1,6 +1,6 @@
 "use client"
 import { Card } from "@/components/ui/card";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,8 +9,13 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import signupSchema from "@/schemas/signup.schema";
 import Link from "next/link";
+import { EyeIcon } from "lucide-react";
 
 const Signup = () => {
+    const [showOutline, setShowOutline] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+
+
     const form = useForm<z.infer<typeof signupSchema>>({
         resolver: zodResolver(signupSchema),
         defaultValues: {
@@ -18,6 +23,14 @@ const Signup = () => {
             password: ""
         },
     });
+
+    const toggleStyle = (val: boolean): void => {
+        setShowOutline(val);
+    }
+
+    const togglePasswordState = (): void => {
+        setShowPassword((password) => !password);
+    }
 
     const onSubmit = async (values: z.infer<typeof signupSchema>) => {
         // Do something with the form values.
@@ -42,7 +55,7 @@ const Signup = () => {
                                         <FormControl>
                                             <Input placeholder="John doe" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage className="text-xs"/>
                                     </FormItem>
                                 )}
                             />
@@ -55,7 +68,7 @@ const Signup = () => {
                                         <FormControl>
                                             <Input placeholder="hello@example.com" {...field} />
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage className="text-xs"/>
                                     </FormItem>
                                 )}
                             />
@@ -66,9 +79,28 @@ const Signup = () => {
                                     <FormItem>
                                         <FormLabel>Password</FormLabel>
                                         <FormControl>
-                                            <Input type="password" placeholder="*****" {...field} />
+                                            <div
+                                                onFocusCapture={() => toggleStyle(true)}
+                                                onBlur={() => toggleStyle(false)}
+                                                className={`transition-colors flex items-center border rounded-md border-input outline-none ${showOutline ? "ring-1 ring-primary" : "outline-none"}`}
+                                            >
+                                                <Input
+                                                    type={showPassword ? "text" : "password"}
+                                                    placeholder="*****"
+                                                    {...field}
+                                                    className="border-0 outline-none focus-visible:ring-0"
+                                                />
+                                                <Button
+                                                    onClick={togglePasswordState}
+                                                    type="button"
+                                                    variant="outline"
+                                                    className="border-none outline-none focus-visible:ring-0"
+                                                >
+                                                    <EyeIcon className=" py-1" />
+                                                </Button>
+                                            </div>
                                         </FormControl>
-                                        <FormMessage />
+                                        <FormMessage className="text-xs" />
                                     </FormItem>
                                 )}
                             />
