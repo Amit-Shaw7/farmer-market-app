@@ -6,11 +6,11 @@ import Products from "@/sections/home/Products";
 export default function Home() {
   return (
     <main className="w-full h-auto">
-      {/* <CarouselDemo /> */}
+      {/* <HomeCarousel /> */}
 
       <Container className="mt-10 flex flex-col gap-10">
         <Categories className="lg:px-18 md:px-10" />
-        <Products title="Some title"/>
+        <Products title="Dairy Products" />
       </Container>
     </main>
   );

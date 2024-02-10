@@ -1,6 +1,4 @@
 import * as React from "react";
-
-// import { Card, CardContent } from "@/components/ui/card";
 import {
     Carousel,
     CarouselContent,
@@ -8,7 +6,6 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import Container from "@/components/Container";
 import Image from "next/image";
 
 const HomeCarousel = () => {

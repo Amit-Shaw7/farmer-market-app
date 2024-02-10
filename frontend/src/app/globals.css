@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -49,16 +49,21 @@
   }
 }
 
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
 }
- 
+
+#slider::-webkit-scrollbar {
+  display: none;
+}
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

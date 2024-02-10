@@ -9,9 +9,9 @@ interface CategoryProps {
 const Category = ({ category }: CategoryProps) => {
   return (
     <div className="flex flex-col items-center justify-center gap-2">
-      <div className={`rounded-md md:rounded-full bg-[#EDF5FF] w-[50px] h-[50px] md:w-[120px] md:h-[120px] md:p-2 flex flex-col items-center justify-center`}>
+      <div className={`w-[70px] h-[70px] sm:w-[80px] sm:h-[80px] md:w-[120px] md:h-[120px] md:p-2 flex flex-col items-center justify-center`}>
         <Image
-          src="/logo/Logo.png"
+          src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/app/images/products/sliding_image/240092a.jpg?ts=1687324818"
           alt="Agrow"
           height={70}
           width={70}

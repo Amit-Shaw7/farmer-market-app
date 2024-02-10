@@ -1,15 +1,16 @@
-import * as React from "react"
+import * as React from "react";
 
-import { Button } from "@/components/ui/button"
+const dummy = "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/app/assets/products/sliding_images/jpeg/7514beed-37f7-4c8c-b50a-4b39842009b8.jpg?ts=1707312315"
+
+import { Button } from "@/components/ui/button";
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import Image from "next/image"
+} from "@/components/ui/card";
+import Image from "next/image";
+import { IndianRupee } from "lucide-react";
+import Link from "next/link";
 
 type ProductType = {
     _id: string;
@@ -22,32 +23,38 @@ type ProductType = {
     category: string;
     sellerType: string;
     sellerId: string;
-}
+};
 
 interface ProductProps {
     product: ProductType
-}
+};
 
 
 export function Product({ product }: ProductProps) {
 
     return (
-        <Card className="w-[200px]">
-            <CardContent>
-                <Image
-                    src={"https://source.unsplash.com/random/300×300"}
-                    alt={product.name}
-                    height={70}
-                    width={50}
-                    className="object-cover h-32 w-32"
-                />
-                <p>{product.name}</p>
-                <p>{product.price}</p>
-
-            </CardContent>
-            <CardFooter className="flex justify-between">
-                <Button variant="outline">Buy</Button>
-            </CardFooter>
-        </Card>
-    )
-}
+        <Link href={`/product/${product._id}`}>
+            <Card className="min-w-[170px] h-[270px] flex flex-col justify-around p-2 rounded-md">
+                <CardContent className="p-0 w-full flex flex-col gap-2">
+                    <div className="w-full flex items-center justify-center">
+                        <Image
+                            src={dummy}
+                            alt={product.name}
+                            height={50}
+                            width={50}
+                            className="object-cover h-[120px] w-32"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-2">
+                        <h4 className="text-sm">{product.name.slice(0, 10)}</h4>
+                        <p className="text-sm font-semibold">{product.price}</p>
+                    </div>
+                </CardContent>
+                <CardFooter className="flex p-0 justify-between">
+                    <p className="text-price font-semibold flex items-center"><IndianRupee size={12} /> {product.price}</p>
+                    <Button variant="outline">Buy</Button>
+                </CardFooter>
+            </Card>
+        </Link>
+    );
+};
