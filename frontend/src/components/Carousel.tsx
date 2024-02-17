@@ -28,7 +28,7 @@ const Carousel = ({ children }: CarouselProps) => {
             }
             <Button
                 onClick={moveLeft}
-                className="rounded-full p-3 absolute left-1 top-1/2 -translate-y-1/2 bg-white shadow-md">
+                className="rounded-full p-3 absolute -left-3 top-1/2 -translate-y-1/2 bg-white shadow-md">
                 <ArrowLeft
                     size={15}
                     fontWeight="bold"
@@ -38,7 +38,7 @@ const Carousel = ({ children }: CarouselProps) => {
 
             <Button
                 onClick={moveRight}
-                className="rounded-full p-3 absolute right-1 top-1/2 -translate-y-1/2 shadow-md bg-white hover:bg-slate-200 hover:shadow-lg hover:shadow-white">
+                className="rounded-full p-3 absolute -right-3 top-1/2 -translate-y-1/2 shadow-md bg-white hover:bg-slate-200 hover:shadow-lg hover:shadow-white">
                 <ArrowRight
                     size={15}
                     fontWeight="bold"

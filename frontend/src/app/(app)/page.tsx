@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import Wrapper from "@/components/Wrapper";
 import HomeCarousel from "@/sections/home/Carousel";
 import Categories from "@/sections/home/Categories";
 import Products from "@/sections/home/Products";
@@ -9,8 +10,13 @@ export default function Home() {
       {/* <HomeCarousel /> */}
 
       <Container className="mt-10 flex flex-col gap-10">
-        <Categories className="lg:px-18 md:px-10" />
-        <Products title="Dairy Products" />
+        <Wrapper>
+          <Categories />
+          <Products title="Dairy Products" />
+          <Products title="Pesticides" />
+          <Products title="Fruits" />
+          <Products title="Vegetables" />
+        </Wrapper>
       </Container>
     </main>
   );
