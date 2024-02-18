@@ -333,8 +333,8 @@ export const products = [
         sellerType: "FARMER",
         category: "FRUITS",
         keyFeatures: ["Organic", "Fresh"],
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2965"
     },
 
@@ -348,8 +348,8 @@ export const products = [
         sellerType: "FARMER",
         category: "FRUITS",
         keyFeatures: ["Organic", "Fresh"],
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2965"
     },
     {
@@ -362,8 +362,8 @@ export const products = [
         sellerType: "FARMER",
         category: "FRUITS",
         keyFeatures: ["Organic", "Fresh"],
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2965"
     },
     {
@@ -376,8 +376,8 @@ export const products = [
         sellerType: "FARMER",
         category: "VEGETABLES",
         keyFeatures: ["Organic", "Fresh"],
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2965"
     },
     {
@@ -390,8 +390,8 @@ export const products = [
         sellerType: "DEALER",
         category: "SEEDS",
         keyFeatures: ["Organic", "Fresh"],
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2966"
     },
     {
@@ -404,8 +404,8 @@ export const products = [
         sellerType: "DEALER",
         category: "SEEDS",
         keyFeatures: ["Organic", "Fresh"],
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2966"
     },
     {
@@ -417,8 +417,8 @@ export const products = [
         stock: 10,
         sellerType: "DEALER",
         category: "FERTILIZERS",
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2966"
     },
     {
@@ -430,8 +430,8 @@ export const products = [
         stock: 10,
         sellerType: "DEALER",
         category: "FERTILIZERS",
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2966"
     },
     {
@@ -443,8 +443,8 @@ export const products = [
         stock: 10,
         sellerType: "DEALER",
         category: "FERTILIZERS",
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2966"
     },
     {
@@ -456,8 +456,8 @@ export const products = [
         stock: 10,
         sellerType: "DEALER",
         category: "FERTILIZERS",
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2966"
     },
     {
@@ -469,8 +469,38 @@ export const products = [
         stock: 10,
         sellerType: "DEALER",
         category: "PESTICIDES",
-        
-        
+
+
         sellerId: "5d378db134e20b4d7e6f2966"
     },
 ];
+
+export const swiperResponisveBreakpoints = {
+    0: {
+        slidesPerView: 1,
+    },
+    320: {
+        slidesPerView: 1,
+    },
+    380:{
+        slidesPerView:2,
+    },
+    600: {
+        slidesPerView: 3,
+    },
+    768: {
+        slidesPerView: 3,
+    },
+    1000: {
+        slidesPerView: 4,
+    },
+    1200: {
+        slidesPerView: 5,
+    },
+    1400: {
+        slidesPerView: 6,
+    },
+    1500: {
+        slidesPerView: 7,
+    },
+}

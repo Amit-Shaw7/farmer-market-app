@@ -2,10 +2,11 @@
 import Carousel from "@/components/Slider";
 import Heading from "@/components/Heading";
 import { Product } from "@/components/Product";
-import { products } from "@/constants";
+import { products, swiperResponisveBreakpoints } from "@/constants";
 import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules';
+import 'swiper/swiper-bundle.css';
 
 const Products = ({ title }: { title: string }) => {
     return (
@@ -18,14 +19,15 @@ const Products = ({ title }: { title: string }) => {
 
             <div className="w-full relative">
                 <Swiper
-                    spaceBetween={15}
-                    slidesPerView={7}
+                    spaceBetween={30}
+                    slidesPerView={6}
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
                     navigation={true}
                     modules={[FreeMode, Navigation, Thumbs]}
                     className='mySwiper'
                     freeMode
+                    breakpoints={swiperResponisveBreakpoints}
                 >
                     {
                         products.map((product) => (
