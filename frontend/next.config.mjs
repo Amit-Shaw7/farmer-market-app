@@ -7,16 +7,20 @@ const nextConfig = {
                 hostname: "source.unsplash.com",
             },
             {
-                protocol : "https",
+                protocol: "https",
                 hostname: "cdn.grofers.com",
             },
             {
-                protocol : "https",
+                protocol: "https",
                 hostname: "example.com",
             },
             {
-                protocol : "https",
+                protocol: "https",
                 hostname: "www.thespruceeats.com",
+            },
+            {
+                protocol: "https",
+                hostname: "cdn.pixabay.com",
             },
         ],
     }

@@ -1,9 +1,11 @@
 "use client";
-import Carousel from "@/components/Carousel";
+import Carousel from "@/components/Slider";
 import Heading from "@/components/Heading";
 import { Product } from "@/components/Product";
 import { products } from "@/constants";
 import React from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules';
 
 const Products = ({ title }: { title: string }) => {
     return (
@@ -15,13 +17,24 @@ const Products = ({ title }: { title: string }) => {
             />
 
             <div className="w-full relative">
-                <Carousel>
+                <Swiper
+                    spaceBetween={15}
+                    slidesPerView={7}
+                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}
+                    navigation={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className='mySwiper'
+                    freeMode
+                >
                     {
                         products.map((product) => (
-                            <Product key={product._id} product={product} />
+                            <SwiperSlide key={product._id}>
+                                <Product product={product} />
+                            </SwiperSlide>
                         ))
                     }
-                </Carousel>
+                </Swiper>
             </div>
         </div>
     );

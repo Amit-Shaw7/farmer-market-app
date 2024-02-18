@@ -59,6 +59,56 @@
   display: none;
 }
 
+.swiper-button-next {
+  background-image: url("/arrow-right.svg");
+  background-repeat: no-repeat;
+  background-size: 80% auto;
+  background-position: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 1px 1px;
+  border-radius: 50%;
+  width: 30px !important;
+  height: 30px !important;
+  transition: all 0.1s ease-in-out;
+}
+
+.swiper-button-next:hover {
+  box-shadow: none !important;
+  scale: 1.2;
+  border: 1px solid gray;
+}
+
+.swiper-button-prev {
+  background-image: url("/arrow-left.svg");
+  background-repeat: no-repeat;
+  background-size: 80% auto;
+  background-position: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 1px 1px;
+  border-radius: 50%;
+  width: 30px !important;
+  height: 30px !important;
+  transition: all 0.1s ease-in-out;
+}
+
+.swiper-button-prev:hover {
+  box-shadow: none !important;
+  scale: 1.2;
+  border: 1px solid gray;
+}
+
+.swiper-button-next::after {
+  display: none;
+  height: 100px;
+  width: 100px;
+}
+
+.swiper-button-prev::after {
+  display: none;
+}
+
+.swiper-button-disabled {
+  opacity: 0.5;
+}
+
 @layer base {
   * {
     @apply border-border;

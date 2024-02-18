@@ -13,7 +13,7 @@ const Search = ({ variant, className }: SearchProps) => {
     <>
       <div className="w-full border flex items-center justify-between rounded-sm">
         <input
-          className="outline-none focus:outline-none pl-1 h-full w-full"
+          className="bg-transparent outline-none focus:outline-none pl-1 h-full w-full"
           placeholder="Search"
           onChange={(e) => console.log(e.target.value)}
           value="helllo"

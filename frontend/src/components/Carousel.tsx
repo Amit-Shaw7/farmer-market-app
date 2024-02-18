@@ -1,50 +1,35 @@
+"use client";
+import Heading from "@/components/Heading";
+import { Product } from "@/components/Product";
+import { products } from "@/constants";
 import React from "react";
-import { Button } from "./ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules';
 
-interface CarouselProps {
-    children: React.ReactNode
-};
-
-const Carousel = ({ children }: CarouselProps) => {
-    const moveRight = () => {
-        let slider = document.getElementById("slider");
-        if (slider) {
-            slider.scrollLeft = slider?.scrollLeft + 1000;
-        }
-    };
-
-    const moveLeft = () => {
-        let slider = document.getElementById("slider");
-        if (slider) {
-            slider.scrollLeft = slider?.scrollLeft - 1000;
-        }
-    };
-
+const Carousel = ({ title }: { title: string }) => {
     return (
-        <div id="slider" className="flex gap-4 overflow-x-scroll whitespace-nowrap scroll-smooth">
-            {
-                children
-            }
-            <Button
-                onClick={moveLeft}
-                className="rounded-full p-3 absolute -left-3 top-1/2 -translate-y-1/2 bg-white shadow-md">
-                <ArrowLeft
-                    size={15}
-                    fontWeight="bold"
-                    color="black"
-                />
-            </Button>
+        <div className="flex flex-col gap-[20px] my-12 relative">
 
-            <Button
-                onClick={moveRight}
-                className="rounded-full p-3 absolute -right-3 top-1/2 -translate-y-1/2 shadow-md bg-white hover:bg-slate-200 hover:shadow-lg hover:shadow-white">
-                <ArrowRight
-                    size={15}
-                    fontWeight="bold"
-                    color="black"
-                />
-            </Button>
+            <div className="w-full relative">
+                <Swiper
+                    spaceBetween={15}
+                    slidesPerView={7}
+                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}
+                    navigation={true}
+                    // thumbs={{ swiper: thumbsSwiper }}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className='mySwiper'
+                >
+                    {
+                        products.map((product) => (
+                            <SwiperSlide key={product._id}>
+                                <Product product={product} />
+                            </SwiperSlide>
+                        ))
+                    }
+                </Swiper>
+            </div>
         </div>
     );
 };
