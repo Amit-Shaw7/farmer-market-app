@@ -482,8 +482,8 @@ export const swiperResponisveBreakpoints = {
     320: {
         slidesPerView: 1,
     },
-    380:{
-        slidesPerView:2,
+    380: {
+        slidesPerView: 2,
     },
     600: {
         slidesPerView: 3,
@@ -503,4 +503,54 @@ export const swiperResponisveBreakpoints = {
     1500: {
         slidesPerView: 7,
     },
-}
+};
+
+export const swiperResponisveBreakpointsForProductImagesGroup = {
+    0: {
+        slidesPerView: 1,
+    },
+    320: {
+        slidesPerView: 3,
+    },
+    380: {
+        slidesPerView: 4,
+    },
+    480: {
+        slidesPerView: 5,
+    },
+    625: {
+        slidesPerView: 6,
+    },
+    768: {
+        slidesPerView: 3,
+    },
+    1000: {
+        slidesPerView: 4,
+    },
+    1200: {
+        slidesPerView: 5,
+    }
+};
+
+export const ourFeatures = [
+    {
+        title: "24/7 Support",
+        description: "We are always available to help you.",
+        image: "/features/24-hours-support.svg"
+    },
+    {
+        title: "Fast Delivery",
+        description: "We delivers the order as fast as possible.",
+        image: "/features/fast-delivery.svg"
+    },
+    {
+        title: "Best Prices & Offers",
+        description: "Best price destination with offers directly from the sellers.",
+        image: "/features/best-offers.svg"
+    },
+    {
+        title: "Wide Assortment",
+        description: "Choose from 5000+ products with diverse categories.",
+        image: "/features/wide-assortment.svg"
+    }
+]

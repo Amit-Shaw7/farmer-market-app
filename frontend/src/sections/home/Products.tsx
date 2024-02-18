@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Heading from "@/components/Heading";
-import { Product } from "@/components/Product";
+import Product  from "@/components/Product";
 import { products, swiperResponisveBreakpoints } from "@/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";

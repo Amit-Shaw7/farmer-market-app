@@ -30,7 +30,7 @@ interface ProductProps {
 };
 
 
-export function Product({ product }: ProductProps) {
+const Product = ({ product }: ProductProps) => {
 
     return (
         <Link href={`/product/${product._id}`}>
@@ -58,3 +58,5 @@ export function Product({ product }: ProductProps) {
         </Link>
     );
 };
+
+export default Product;

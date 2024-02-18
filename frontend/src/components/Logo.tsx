@@ -16,7 +16,7 @@ const Logo = () => {
                 className="object-cover h-full w-full"
             />
         </Link>
-    )
-}
+    );
+};
 
 export default Logo;

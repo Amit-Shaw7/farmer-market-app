@@ -97,8 +97,6 @@
 
 .swiper-button-next::after {
   display: none;
-  height: 100px;
-  width: 100px;
 }
 
 .swiper-button-prev::after {
@@ -107,6 +105,29 @@
 
 .swiper-button-disabled {
   opacity: 0.5;
+}
+
+@media (max-width: 425px) {
+  .swiper-button-next {
+    display: none !important;
+  }
+
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
+.product-images-group .swiper-slide {
+  opacity: 0.6;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  /* border: 2px solid rgb(69, 177, 249) !important; */
+  opacity: 1;
+}
+
+.product-images-group .swiper-button-prev .swiper-button-next {
+  display: none !important;
 }
 
 @layer base {
