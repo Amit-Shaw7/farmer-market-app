@@ -1,12 +1,11 @@
 "use client";
-import Carousel from "@/components/Slider";
+import React from "react";
 import Heading from "@/components/Heading";
 import { Product } from "@/components/Product";
 import { products, swiperResponisveBreakpoints } from "@/constants";
-import React from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules';
-import 'swiper/swiper-bundle.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import "swiper/swiper-bundle.css";
 
 const Products = ({ title }: { title: string }) => {
     return (
@@ -21,11 +20,11 @@ const Products = ({ title }: { title: string }) => {
                 <Swiper
                     spaceBetween={30}
                     slidesPerView={6}
-                    onSlideChange={() => console.log('slide change')}
+                    onSlideChange={() => console.log("slide change")}
                     onSwiper={(swiper) => console.log(swiper)}
                     navigation={true}
                     modules={[FreeMode, Navigation, Thumbs]}
-                    className='mySwiper'
+                    className="mySwiper"
                     freeMode
                     breakpoints={swiperResponisveBreakpoints}
                 >

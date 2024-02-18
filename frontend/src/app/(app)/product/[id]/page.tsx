@@ -8,7 +8,7 @@ const ProductDetails = ({ params }: { params: { id: string } }) => {
         <div className='w-full'>
 
         </div>
-    )
-}
+    );
+};
 
-export default ProductDetails
+export default ProductDetails;
