@@ -13,8 +13,8 @@ const ProductDetails = ({ params }: { params: { id: string } }) => {
 
     return (
         <Container className="flex flex-col gap-10">
-            <div className="h-fit grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div className="h-[550px]">
                     <ProductImages />
                 </div>
 

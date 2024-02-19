@@ -11,7 +11,7 @@ const ProductImages = () => {
     const [thumbsSwiper, setThumbsSwiper]: any = React.useState(null);
 
     return (
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-10 sm:gap-5">
             <div>
                 <Swiper
                     spaceBetween={10}
@@ -29,8 +29,8 @@ const ProductImages = () => {
                             <SwiperSlide key={index}>
                                 <Image
                                     width={600}
-                                    height={400}
-                                    className="h-[300px] w-full sm:h-[400px] object-contain"
+                                    height={300}
+                                    className="h-[450px] lg:h-[450px] w-full object-cover md:object-contain"
                                     src={picture}
                                     alt={product.name}
                                 />
@@ -39,7 +39,7 @@ const ProductImages = () => {
                     }
                 </Swiper>
             </div>
-            <div className="h-max">
+            <div>
                 <Swiper
                     spaceBetween={1}
                     slidesPerView={6}
@@ -53,11 +53,11 @@ const ProductImages = () => {
                 >
                     {
                         product.pictures.map((picture, index) => (
-                            <SwiperSlide className="justify-self-center" key={index}>
+                            <SwiperSlide key={index}>
                                 <Image
                                     width={100}
                                     height={100}
-                                    className="h-[80px] w-[80px] md:h-[100px] md:w-[100px] object-cover md:object-contain"
+                                    className="w-[80px] md:w-[100px] object-cover md:object-contain"
                                     src={picture}
                                     alt={product.name}
                                 />
