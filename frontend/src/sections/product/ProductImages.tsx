@@ -1,11 +1,10 @@
 "use client";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Pagination, Thumbs } from "swiper/modules";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
 import { product } from "@/development/mocks/productDetails";
-import { swiperResponisveBreakpointsForProductImagesGroup } from "@/constants";
-import { Swiper as SwiperType } from "swiper/types";
+import { breakpointsForProductImagesGroup } from "@/constants/swiper-breakpoints";
 
 const ProductImages = () => {
     const [thumbsSwiper, setThumbsSwiper]: any = React.useState(null);
@@ -49,7 +48,7 @@ const ProductImages = () => {
                     className="mySwiper product-images-group"
                     freeMode
                     onSwiper={(swiper) => setThumbsSwiper(swiper)}
-                    breakpoints={swiperResponisveBreakpointsForProductImagesGroup}
+                    breakpoints={breakpointsForProductImagesGroup}
                 >
                     {
                         product.pictures.map((picture, index) => (

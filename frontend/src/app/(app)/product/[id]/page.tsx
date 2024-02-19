@@ -3,8 +3,8 @@ import React from "react";
 import Container from "@/components/Container";
 import { product } from "@/development/mocks/productDetails";
 import Image from "next/image";
-import ProductImages from "@/sections/productDetails/ProductImages";
-import ProductDescription from "@/sections/productDetails/ProductDescription";
+import ProductImages from "@/sections/product/ProductImages";
+import ProductDescription from "@/sections/product/ProductDescription";
 import "swiper/swiper-bundle.css"
 import Products from "@/sections/home/Products";
 

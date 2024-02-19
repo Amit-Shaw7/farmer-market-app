@@ -1,11 +1,12 @@
 "use client";
 import React from "react";
 import Heading from "@/components/Heading";
-import Product  from "@/components/Product";
-import { products, swiperResponisveBreakpoints } from "@/constants";
+import Product from "@/components/Product";
+import { products } from "@/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import "swiper/swiper-bundle.css";
+import { breakpointsForProducts } from "@/constants/swiper-breakpoints";
 
 const Products = ({ title }: { title: string }) => {
     return (
@@ -26,7 +27,7 @@ const Products = ({ title }: { title: string }) => {
                     modules={[FreeMode, Navigation, Thumbs]}
                     className="mySwiper"
                     freeMode
-                    breakpoints={swiperResponisveBreakpoints}
+                    breakpoints={breakpointsForProducts}
                 >
                     {
                         products.map((product) => (

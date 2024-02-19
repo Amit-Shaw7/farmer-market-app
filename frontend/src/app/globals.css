@@ -55,7 +55,7 @@
   box-sizing: border-box;
 }
 
-#slider::-webkit-scrollbar {
+.scrollbar-none::-webkit-scrollbar {
   display: none;
 }
 
