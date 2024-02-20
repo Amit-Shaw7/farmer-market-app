@@ -1,9 +1,22 @@
 "use client";
-import React from "react";
+import React, { useCallback, useEffect } from "react";
+import {useParams} from "next/navigation";
 
 const Tabs = ({ children }: { children: React.ReactNode }) => {
+    const params = useParams();
+    const focusOnSelectedTab = useCallback(() => {
+        const tab = document.getElementById(`tab-${params.category}`);
+        if (tab) {
+            tab.scrollIntoView({ behavior: "smooth" });
+        }
+    },[params.category]);
+
+    useEffect(() => {
+        focusOnSelectedTab();
+    },[focusOnSelectedTab]);
+    
     return (
-        <div className="scrollbar-none h-full overflow-y-scroll border-l border-r border-t w-full flex flex-col">
+        <div className="max-h-[700px] overflow-y-scroll scrollbar-none border-l border-r w-full flex flex-col">
             {children}
         </div>
     );

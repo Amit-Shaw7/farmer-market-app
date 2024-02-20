@@ -13,16 +13,19 @@ interface TabProps {
 const Tab = ({ selected, href, image, name }: TabProps) => {
     return (
         <Link href={href} className="w-full">
-            <div className={`
-                ${selected ? "border-l-4 border-l-primary bg-cream" : "mx-1"} 
-                border-b 
-                px-4 
-                py-3
-                flex 
-                flex-col md:flex-row
-                items-center 
-                gap-1 md:gap-3
-            `}>
+            <div
+                id={`tab-${name}`}
+                className={`
+                    ${selected ? "border-l-4 border-l-primary bg-cream" : "mx-1"} 
+                    border-b 
+                    px-4 
+                    py-3
+                    flex 
+                    flex-col md:flex-row
+                    items-center 
+                    gap-1 md:gap-3
+                `}
+            >
                 {image
                     &&
                     <Image
@@ -34,7 +37,15 @@ const Tab = ({ selected, href, image, name }: TabProps) => {
                     />
                 }
 
-                <p className="font-normal md:font-medium text-xs md:text-base break-all text-center">{name}</p>
+                <p className={`
+                    ${selected ? "font-medium md:font-semibold" : "font-normal md:font-medium"}  
+                    text-xs md:text-sm lg:text-base 
+                    break-all xs:break-words 
+                    text-center
+                `}
+                >
+                    {name}
+                </p>
             </div>
         </Link>
     );

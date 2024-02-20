@@ -34,7 +34,7 @@ const Product = ({ product }: ProductProps) => {
 
     return (
         <Link href={`/product/${product._id}`}>
-            <Card className="min-w-[170px] h-[270px] flex flex-col justify-around p-2 rounded-md">
+            <Card className="min-w-[170px] flex flex-col justify-around p-2 rounded-md">
                 <CardContent className="p-0 w-full flex flex-col gap-2">
                     <div className="w-full flex items-center justify-center">
                         <Image
@@ -42,7 +42,7 @@ const Product = ({ product }: ProductProps) => {
                             alt={product.name}
                             height={50}
                             width={50}
-                            className="object-cover h-[120px] w-32"
+                            className="object-cover h-[200px] md:h-[120px] w-32"
                         />
                     </div>
                     <div className="flex flex-col gap-2">
