@@ -8,7 +8,7 @@ interface ContainerProps {
 
 const Container = ({ children, className }: ContainerProps) => {
     return (
-        <div className={cn("px-0 xs:px-0 sm:px-4 md:px-12 lg:px-20", className)}>
+        <div className={cn("px-1 xs:px-0 sm:px-4 md:px-12 lg:px-20", className)}>
             {children}
         </div>
     );

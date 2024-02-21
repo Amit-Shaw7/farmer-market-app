@@ -11,7 +11,7 @@ import Image from "next/image";
 const HomeCarousel = () => {
     return (
         <div>
-            <Carousel className="mt-10">
+            <Carousel className="mt-2">
                 <CarouselContent>
                     {Array.from({ length: 5 }).map((_, index) => (
                         <CarouselItem key={index}>
@@ -19,9 +19,9 @@ const HomeCarousel = () => {
                                 <Image
                                     src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=2700/layout-engine/2022-05/Group-33704.jpg"
                                     alt=""
-                                    height={200}
+                                    height={500}
                                     width={1000}
-                                    className="object-cover h-full w-full"
+                                    className="object-cover h-[500px] w-full"
                                 />
                             </div>
                         </CarouselItem>

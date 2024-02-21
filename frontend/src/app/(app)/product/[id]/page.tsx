@@ -7,25 +7,28 @@ import ProductImages from "@/sections/product/ProductImages";
 import ProductDescription from "@/sections/product/ProductDescription";
 import "swiper/swiper-bundle.css"
 import Products from "@/sections/home/Products";
+import Wrapper from "@/components/Wrapper";
 
 const ProductDetails = ({ params }: { params: { id: string } }) => {
     console.log(params.id);
 
     return (
         <Container className="flex flex-col gap-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <div className="h-[550px]">
-                    <ProductImages />
+            <Wrapper>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <div className="h-[550px]">
+                        <ProductImages />
+                    </div>
+
+                    <div>
+                        <ProductDescription />
+                    </div>
                 </div>
 
                 <div>
-                    <ProductDescription />
+                    <Products title="Similar Products" />
                 </div>
-            </div>
-
-            <div>
-                <Products title="Similar Products" />
-            </div>
+            </Wrapper>
         </Container>
     );
 };

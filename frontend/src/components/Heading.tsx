@@ -8,7 +8,7 @@ interface HeadingProps {
 const Heading = ({ showButton, text, onClick }:HeadingProps) => {
     return (
         <div className="flex items-center justify-between">
-            <h2 className="text-xl font-semibold">{text}</h2>
+            <h1 className="text-xl font-semibold">{text}</h1>
             {showButton ? <Button onClick={onClick} variant="link">See all</Button> : ""}
         </div>
     );

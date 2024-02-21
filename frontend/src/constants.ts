@@ -474,3 +474,15 @@ export const products = [
         sellerId: "5d378db134e20b4d7e6f2966"
     },
 ]; // only for dev
+
+
+export const dummyUser = {
+    _id: "5d378db134e20b4d7e6f2966",
+    name: "John Doe",
+    email: "bGwYd@example.com",
+    picture: "https://example.com/johndoe.jpg",
+    role: "USER",
+    cart: [],
+    phone : "123456789",
+    address : "123 Main St",
+};

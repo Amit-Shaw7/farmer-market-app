@@ -12,13 +12,13 @@ const Footer = () => {
       {/* Logo and name */}
       <div className="w-full flex items-center gap-4">
         <Logo />
-        <BrandName/>
+        <BrandName />
       </div>
 
 
-      <div className="ml-4 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+      <div className="pl-4 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
         {/* Social links and about brand */}
-        <div className="flex flex-col justify-between gap-10">
+        <div className="w-full flex flex-col justify-between gap-10">
           <p className="text-sm text-muted-foreground font-500">Linking Farmers, Sellers, and Buyers <br /> for Easy Agricultural Trade.</p>
           <ul className="flex gap-2 items-center">
             {
