@@ -5,10 +5,10 @@ import { usePathname, useRouter } from "next/navigation";
 
 interface SearchProps {
   searchText : string,
-  searchProducts : () => void
+  searchProducts : (e: React.ChangeEvent<HTMLInputElement>) => void
 };
 
-const Search = () => {
+const Search = ({ searchText, searchProducts }: SearchProps) => {
   const path = usePathname();
   const router = useRouter();
 
@@ -28,8 +28,8 @@ const Search = () => {
           onFocus={goToSearchPage}
           className="bg-transparent outline-none focus:outline-none pl-1 h-full w-full"
           placeholder="Search"
-          onChange={(e) => console.log(e.target.value)}
-          value="helllo"
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => searchProducts(e)}
+          value={searchText}
         />
         <Button
           variant="ghost"
