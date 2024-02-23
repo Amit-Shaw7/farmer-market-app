@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import Heading from "@/components/Heading";
+import SectionHeading from "@/components/SectionHeading";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { dummyUser } from "@/constants";
@@ -45,7 +45,7 @@ const Account = () => {
 
     return (
         <Container className="my-5 flex flex-col gap-5">
-            <Heading text="Your Account" />
+            <SectionHeading text="Your Account" />
             <div className="grid grid-cols-12 gap-3 px-2 mt-2">
 
                 {
@@ -107,5 +107,5 @@ const Account = () => {
         </Container>
     );
 };
- 
+
 export default Account;

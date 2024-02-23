@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Heading from "@/components/Heading";
+import SectionHeading from "@/components/SectionHeading";
 import Product from "@/components/Product";
 import { products } from "@/constants";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,7 +11,7 @@ import { breakpointsForProducts } from "@/constants/swiper-breakpoints";
 const Products = ({ title }: { title: string }) => {
     return (
         <div className="flex flex-col gap-[20px] my-12 relative">
-            <Heading
+            <SectionHeading
                 text={title}
                 showButton={true}
                 onClick={() => { }}

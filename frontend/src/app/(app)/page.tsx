@@ -7,7 +7,7 @@ import Products from "@/sections/home/Products";
 export default function Home() {
   return (
     <main className="w-full h-auto">
-      {/* <HomeCarousel /> */}
+      <HomeCarousel />
       <Container className="mt-10 flex flex-col gap-10">
         <Wrapper>
           <Categories />

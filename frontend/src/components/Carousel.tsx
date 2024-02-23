@@ -1,10 +1,9 @@
 "use client";
-import Heading from "@/components/Heading";
-import { Product } from "@/components/Product";
+import Product from "@/components/Product";
 import { products } from "@/constants";
 import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 const Carousel = ({ title }: { title: string }) => {
     return (

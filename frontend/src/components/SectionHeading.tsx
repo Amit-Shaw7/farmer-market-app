@@ -1,11 +1,11 @@
 import { Button } from "./ui/button";
 
-interface HeadingProps {
+interface SectionHeadingProps {
     text: string,
     showButton?: boolean,
     onClick?: () => void
 }
-const Heading = ({ showButton, text, onClick }:HeadingProps) => {
+const SectionHeading = ({ showButton, text, onClick }:SectionHeadingProps) => {
     return (
         <div className="flex items-center justify-between">
             <h1 className="text-xl font-semibold">{text}</h1>
@@ -14,4 +14,4 @@ const Heading = ({ showButton, text, onClick }:HeadingProps) => {
     );
 };
 
-export default Heading;
+export default SectionHeading;

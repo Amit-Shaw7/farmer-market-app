@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import Heading from "@/components/Heading";
+import SectionHeading from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { cartProducts } from "@/development/mocks/cartProducts";
@@ -11,7 +11,7 @@ const Cart = () => {
   return (
     <Container className="py-10">
       <div className="p-4">
-        <Heading text="My Cart" />
+        <SectionHeading text="My Cart" />
 
         <div className="mt-5 flex flex-col gap-5">
           {
