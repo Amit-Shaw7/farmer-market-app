@@ -21,8 +21,8 @@ const Products = ({ title }: { title: string }) => {
                 <Swiper
                     spaceBetween={30}
                     slidesPerView={6}
-                    onSlideChange={() => console.log("slide change")}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log("slide change")}
+                    // onSwiper={(swiper) => console.log(swiper)}
                     navigation={true}
                     modules={[FreeMode, Navigation, Thumbs]}
                     className="mySwiper"

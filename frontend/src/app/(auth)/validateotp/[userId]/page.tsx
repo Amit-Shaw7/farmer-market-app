@@ -3,14 +3,21 @@ import React from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { AxiosResponse } from "axios";
 import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
+
 import { Card } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import validateOtpSchema from "@/schemas/validateOtp.schema";
+import { resendOtp, validateOtp } from "@/apiCalls/otp";
 
 const ValidateOtp = () => {
+    const params = useParams<{ userId: string }>();
+    const router = useRouter();
+
     const form = useForm<z.infer<typeof validateOtpSchema>>({
         resolver: zodResolver(validateOtpSchema),
         defaultValues: {
@@ -21,8 +28,21 @@ const ValidateOtp = () => {
     const onSubmit = async (values: z.infer<typeof validateOtpSchema>) => {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
-        console.log(values);
+        const response = await validateOtp(values, params.userId);
+        if (response?.status === 200) {
+            alert("OTP verified");
+            router.push("/login");
+        }else{
+            alert(response?.msg);
+        }
     };
+
+    const resend = async () => {
+        const response = await resendOtp(params.userId);
+        if (response?.status === 200) {
+            alert("OTP sent");
+        }
+    }
 
 
     return (
@@ -57,15 +77,16 @@ const ValidateOtp = () => {
                             >
                                 Submit
                             </Button>
-                            <span className="text-sm text-center">
-                                Didn&apos;t recieved OTP?
-                                <Link
+                            <div className="flex items-center self-end">
+                                <Button
+                                    variant="link"
+                                    size="sm"
                                     className="font-semibold"
-                                    href="/validateotp"
+                                    onClick={resend}
                                 >
                                     &nbsp;Resend OTP
-                                </Link>
-                            </span>
+                                </Button>
+                            </div>
                         </div>
                     </form>
                 </Form>

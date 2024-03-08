@@ -5,14 +5,20 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
+import { useParams, useRouter } from "next/navigation";
 
 import signupSchema from "@/schemas/signup.schema";
 import { Card } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { signup } from "@/apiCalls/auth";
+import { AxiosResponse } from "axios";
+import { CustomResponse } from "@/types";
 
 const Signup = () => {
+    const router = useRouter();
+
     const [showOutline, setShowOutline] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
@@ -34,9 +40,18 @@ const Signup = () => {
     };
 
     const onSubmit = async (values: z.infer<typeof signupSchema>) => {
-        // Do something with the form values.
-        // ✅ This will be type-safe and validated.
-        console.log(values);
+        // console.log(values);
+        const response: CustomResponse | undefined = await signup(values);
+        // console.log(response);
+        if (response?.status === 201) {
+            const userId = response?.data?._id;
+
+            // redirect to validate otp pageus
+            alert("Signup successfull");
+            router.push(`/validateotp/${userId}`);
+        } else {
+            alert(response?.msg);
+        }
     };
 
 
@@ -89,6 +104,7 @@ const Signup = () => {
                                                 className={`transition-colors flex items-center border rounded-md border-input outline-none ${showOutline ? "ring-1 ring-primary" : "outline-none"}`}
                                             >
                                                 <Input
+                                                    autoComplete="on"
                                                     type={showPassword ? "text" : "password"}
                                                     placeholder="*****"
                                                     {...field}
@@ -103,6 +119,19 @@ const Signup = () => {
                                                     <EyeIcon className=" py-1" />
                                                 </Button>
                                             </div>
+                                        </FormControl>
+                                        <FormMessage className="text-xs" />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="phone"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Phone</FormLabel>
+                                        <FormControl>
+                                            <Input type="tel" placeholder="9999999999" {...field} />
                                         </FormControl>
                                         <FormMessage className="text-xs" />
                                     </FormItem>

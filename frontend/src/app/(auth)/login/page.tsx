@@ -5,14 +5,26 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { EyeIcon } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Card } from "@/components/ui/card";
 import loginSchema from "@/schemas/login.schema";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { login } from "@/apiCalls/auth";
+import { AxiosResponse } from "axios";
+import { AppDispatch, RootState } from "@/store/Store";
+import { loginFailure, loginSuccess } from "@/store/slices/userSlice";
+import { CustomResponse } from "@/types";
 
 const Login = () => {
+  const user = useSelector((state: RootState) => state.userSlice);
+
+  const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
+
   const [showPassword, setShowPassword] = useState(false);
   const [showOutline, setShowOutline] = useState(false);
 
@@ -33,9 +45,15 @@ const Login = () => {
   };
 
   const onSubmit = async (values: z.infer<typeof loginSchema>) => {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values);
+    const response: CustomResponse | undefined = await login(values);
+    if (response?.status === 200) {
+      alert("Login successfull");
+      router.push("/");
+      dispatch(loginSuccess(response.data));
+    } else {
+      alert(response?.msg);
+      dispatch(loginFailure());
+    }
   };
 
 

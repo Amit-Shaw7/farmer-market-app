@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
-import "../globals.css";
+// import "../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
-
-const mostserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,13 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={mostserrat.className}>
-        <Navbar />
-        {children}
-        <ScrollToTop />
-        <Footer />
-      </body>
-    </html>
+    <div>
+      <Navbar />
+      {children}
+      <ScrollToTop />
+      <Footer />
+    </div>  
   );
 }

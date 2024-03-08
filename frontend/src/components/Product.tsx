@@ -23,6 +23,7 @@ type ProductType = {
     category: string;
     sellerType: string;
     sellerId: string;
+    unit?: string
 };
 
 interface ProductProps {
@@ -47,7 +48,11 @@ const Product = ({ product }: ProductProps) => {
                     </div>
                     <div className="flex flex-col gap-2">
                         <h4 className="text-sm">{product.name.slice(0, 10)}</h4>
-                        <p className="text-sm font-semibold">{product.price}</p>
+                        <div className="flex gap-[2px]">
+                            <p className="text-sm font-semibold">{product.price}</p>
+                            <span className="text-[10px] font-medium self-end">{product?.unit ? "/ " : ""}</span>
+                            <span className="text-[10px] font-medium self-end">{product?.unit}</span>
+                        </div>
                     </div>
                 </CardContent>
                 <CardFooter className="flex p-0 justify-between">

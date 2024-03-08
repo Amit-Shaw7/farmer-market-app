@@ -7,18 +7,18 @@ import generateOTP from "../../utils/generateOtp.js";
 import sendMail from "../../services/sendMail.js";
 
 const signup = asyncHandler(async (req, res, next) => {
-    const { name, email, password } = req.body;
+    const { name, email, password , phone} = req.body;
 
     const userExists = await User.findOne({ email });
     if (userExists) throw new ApiError(400, "User already exists");
 
-    const user = await User.create({ name, email, password });
+    const user = await User.create({ name, email, password , phone });
 
     const otp = generateOTP();
     await Otp.create({
         userId: user._id,
         otp,
-        email
+        email,
     });
 
     const html = `
@@ -27,7 +27,7 @@ const signup = asyncHandler(async (req, res, next) => {
             <h3>This is your OTP ${otp}</h3>
         </div>
     `;
-    // sendMail(email, "OTP Verification", html);
+    sendMail(email, "OTP Verification", html);
 
     const status = 201;
     return res.status(status).json(

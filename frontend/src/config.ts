@@ -1,0 +1,1 @@
+export const backendUrl_v1 = process.env.NEXT_PUBLIC_BACKEND_URL_V1;

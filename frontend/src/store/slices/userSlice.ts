@@ -1,40 +1,50 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import { RootState } from "../Store";
+import { User } from "@/types";
+import { createSlice } from "@reduxjs/toolkit";
 
-type Note = {
-  id: string;
-  heading: string;
-  content: string;
+interface UserState {
+  user: User;
+  isAuthenticated: boolean;
 }
 
-interface NoteState {
-  notes: Array<Note>
+const defaultUser: User = {
+  name: "",
+  email: "",
+  phone: "",
+  role: "",
+  businessDocument: "",
+  shippingDetails: "",
+  isVerified: false,
+  cartId: "",
+  _id: "",
+  avatar: "",
 }
 
-const initialState: NoteState = {
-  notes: [
-    { id: '1', heading: 'Todo for the day', content: '' }
-  ]
-}
+const initialState: UserState = {
+  user: defaultUser,
+  isAuthenticated: false,
+};
 
-export const noteSlice = createSlice({
+export const user = createSlice({
+  name: "user",
+  initialState,
   reducers: {
-    addNote: (state, action: PayloadAction<Note>) => {
-      const note = action.payload;
-      state.notes.push(note)
+    loginSuccess: (state, action) => {
+      console.log("payload", action.payload);
+      
+      state.user = action.payload;
+      state.isAuthenticated = true;
     },
-    removeNote: (state, action: PayloadAction<string>) => {
-      const id = action.payload;
-      const notes = state.notes.filter((note) => note.id !== id);
-      state.notes = notes;
+    loginFailure: (state) => {
+      state.user = defaultUser;
+      state.isAuthenticated = false;
+    },
+
+    logoutSuccess: (state) => {
+      state.user = defaultUser;
+      state.isAuthenticated = false;
     }
-  }
-})
+  },
+});
 
-// actions
-export const {addNote, removeNote} = noteSlice.actions 
-
-// selectors
-export const selectNotes = (state: RootState) => state.notes.notes
-
-export default noteSlice.reducer
+export const { loginSuccess, loginFailure, logoutSuccess } = user.actions;
+export default user.reducer;

@@ -34,6 +34,17 @@ const signupSchema = z.object({
         .max(50 , {
             message: "Name must be at most 50 characters long"
         }),
+
+    phone: z
+        .string({
+            required_error: "Phone number is required"
+        })
+        .min(10 , {
+            message: "Enter a valid phone number"
+        })
+        .max(10 , {
+            message: "Enter a valid phone number"
+        })
 });
 
 export default signupSchema;

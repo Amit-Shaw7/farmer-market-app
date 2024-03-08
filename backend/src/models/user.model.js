@@ -27,6 +27,7 @@ const UserSchema = new mongoose.Schema(
             type: String,
             trim: true,
             unique: true,
+            default: null
         },
         role: {
             type: String,

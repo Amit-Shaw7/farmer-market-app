@@ -5,10 +5,10 @@ const validateOtpSchema = z.object({
         .string({
             required_error: "Please enter a valid OTP"
         })
-        .min(6 , {
+        .min(4 , {
             message: "Invalid OTP"
         })
-        .max(6 , {
+        .max(4 , {
             message: "Invalid OTP"
         }),
 });

@@ -12,9 +12,13 @@ const ProductDescription = () => {
                 <p className="text-md text-muted-foreground">{product.description}</p>
             </div>
 
-            <div className="flex items-center gap-2">
-                <IndianRupee size={14} />
-                <h2 className="text-xl font-medium">{product.price}</h2>
+            <div className="flex gap-2 items-start ">
+                <IndianRupee size={14} className="items-start" />
+                <div className="flex gap-[2px]">
+                    <h2 className="text-xl leading-5 font-medium ">{product.price}</h2>
+                    <span className="text-xs font-medium self-end">{product?.unit ? "/ " : ""}</span>
+                    <span className="text-xs font-medium self-end">{product?.unit}</span>
+                </div>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -39,7 +43,7 @@ const ProductDescription = () => {
                 </Button>
             </div>
 
-            <OurFeatures/>
+            <OurFeatures />
         </div>
     );
 };

@@ -18,6 +18,7 @@ export const products = [
         price: 800000,
         pictures: ['https://example.com/harvester1.jpg', 'https://example.com/harvester2.jpg'],
         stock: 30,
+        unit : "Kg",
         keyFeatures: ['Crop Cutting Technology', 'Auto Navigation'],
         category: 'MACHINES',
         sellerType: "DEALER",

@@ -16,6 +16,11 @@ const ProductSchema = new mongoose.Schema(
             type: Number,
             required: true,
         },
+        unit:{
+            type :String,
+            required : true,
+            default : ["Unit" | "Kg" , "Box" | "Packet"],
+        },
         pictures: [
             {
                 type: String,
