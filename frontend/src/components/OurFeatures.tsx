@@ -1,6 +1,4 @@
 import { ourFeatures } from "@/constants/our-fearures";
-import Image from "next/image";
-import React from "react";
 
 const OurFeature = () => {
   return (
@@ -10,11 +8,12 @@ const OurFeature = () => {
         {
           ourFeatures.map((feature) => (
             <div key={feature.title} className="flex items-center gap-10">
-              <Image
+              <img
                 src={feature.image}
                 alt={feature.title}
                 width={50}
                 height={50}
+                loading="lazy"
               />
               <div>
                 <h3 className="text-lg font-medium">{feature.title}</h3>

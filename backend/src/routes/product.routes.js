@@ -9,6 +9,8 @@ import getProductsWhenAuthenticationNotDone from "../controllers/product/getProd
 import getProduct from "../controllers/product/getProduct.controller.js";
 import updateProduct from "../controllers/product/updateProduct.controller.js";
 import deleteProduct from "../controllers/product/deleteProduct.controller.js";
+import searchProducts from "../controllers/product/searchProducts.js";
+import { upload } from "../middlewares/multer.middleware.js";
 
 const router = express.Router();
 
@@ -16,6 +18,7 @@ router.post(
     "/add",
     verifyToken,
     isSeller,
+    upload.array("pictures"),
     validateData(AddProductSchema),
     addProduct
 );
@@ -32,8 +35,12 @@ router.get(
 );
 
 router.get(
+    "/search",
+    searchProducts
+)
+
+router.get(
     "/:productId",
-    verifyToken,
     getProduct
 );
 

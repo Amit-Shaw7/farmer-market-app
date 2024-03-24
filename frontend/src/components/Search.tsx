@@ -1,22 +1,22 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Search as SearchIcon } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import {useLocation, useNavigate} from "react-router-dom";
 
 interface SearchProps {
   searchText : string,
   searchProducts : (e: React.ChangeEvent<HTMLInputElement>) => void
-};
+}
 
 const Search = ({ searchText, searchProducts }: SearchProps) => {
-  const path = usePathname();
-  const router = useRouter();
+  const path = useLocation();
+  const navigate = useNavigate();
 
   const goToSearchPage = () => {
-    if (path === "s") {
+    if (path.pathname === "/s") {
       return;
     }
-    router.push("/s");
+    navigate("/s");
   };
 
   

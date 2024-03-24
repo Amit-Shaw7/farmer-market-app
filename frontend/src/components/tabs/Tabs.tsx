@@ -1,6 +1,5 @@
-"use client";
 import React, { useCallback, useEffect } from "react";
-import {useParams} from "next/navigation";
+import {useParams} from "react-router-dom";
 
 const Tabs = ({ children }: { children: React.ReactNode }) => {
     const params = useParams();

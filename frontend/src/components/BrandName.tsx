@@ -1,9 +1,8 @@
-import Link from "next/link";
-import React from "react";
+import {Link} from "react-router-dom";
 
 const BrandName = () => {
     return (
-        <Link href="/">
+        <Link to={"/"}>
             <span className="tracking-wide">AGROW</span>
         </Link>
     );

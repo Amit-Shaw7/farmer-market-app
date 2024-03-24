@@ -4,19 +4,19 @@ import * as z from "zod";
 
 export const errorResponse = (
     status: number,
-    error?: {} | any
+    error?: object | AxiosError | z.ZodError | any
 ): CustomResponse => {
     let msg = "";
     if (error) {
         if (error instanceof AxiosError) {
             status = error?.response?.status || status;
             error = error?.response?.data || error.message;
-            msg = error?.msg;
+            msg = error?.msg ? error?.msg : "error";
         } else if (error instanceof z.ZodError) {
             error.errors.map((err) => {
                 msg = err.message
             });
-            error = "Invalid Inputs";
+            error = { msg: "Invalid Inputs" };
         }
     }
     const response = {
@@ -31,7 +31,7 @@ export const errorResponse = (
 export const successResponse = (
     msg: string,
     status: number,
-    data?: {}
+    data?: object
 ): CustomResponse => {
     const response = {
         status: status,

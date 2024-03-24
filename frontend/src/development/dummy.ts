@@ -1,0 +1,2 @@
+export const dummy = "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/app/assets/products/sliding_images/jpeg/7514beed-37f7-4c8c-b50a-4b39842009b8.jpg?ts=1707312315"
+export const dummyPng = "https://cdn.grofers.com/app/images/category/cms_images/icon/922_1643384380004.png";

@@ -43,6 +43,12 @@ const UserSchema = new mongoose.Schema(
         },
         shippingDetails: {
             type: AddressSchema,
+            default : {
+                address: "",
+                city: "",
+                state: "",
+                pincode: ""
+            }
         },
         isVerified: { 
             type: Boolean,

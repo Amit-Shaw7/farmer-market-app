@@ -1,0 +1,4 @@
+Each order Component me delivery charge ka ek reusable component banana hai
+When going to category page from the product details page the params for :category is in uppercase
+Add to cart from product details page is not working 
+every page has an extra div with my-5 which is being repeated do something to follow DRY principle if possible because it also has flex properties   

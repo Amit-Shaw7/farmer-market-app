@@ -1,24 +1,30 @@
-"use client";
 import { RootState } from "@/store/Store";
-import { useRouter } from "next/navigation";
-import React, { ReactComponentElement } from "react";
 import { useSelector } from "react-redux";
-import Redirect from "./Redirect";
+import { Navigate, Outlet } from "react-router-dom";
+import Loading from "./Loading";
 
-const ProtectRoute = ({ children }: { children: React.ReactNode }) => {
-    const { user, isAuthenticated } = useSelector((state: RootState) => state.userSlice);
+const ProtectRoute = ({ allowedRoles }: { allowedRoles: string[] }) => {
+    const { isAuthenticated, user } = useSelector((state: RootState) => state.user);
+    const { mounted } = useSelector((state: RootState) => state.app);
+
+    if (!mounted) {
+        return <Loading />
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to="/auth/login" />
+    }
+
+    const isAllowed = allowedRoles.includes(user?.role);
+
+    if (!isAllowed) {
+        return <Navigate to="/forbidden" />
+    }
+
     return (
-        <div>
-            {
-                isAuthenticated
-                    ?
-                    <div>
-                        {children}
-                    </div>
-                    :
-                    <Redirect url="/login" />
-            }
-        </div>
+        <>
+            <Outlet />
+        </ >
     );
 };
 

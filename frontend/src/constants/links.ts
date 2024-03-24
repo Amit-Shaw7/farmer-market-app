@@ -82,14 +82,14 @@ export const accountPageLinks = [
         title: "Your Addresses",
         description: "Edit your addresses for orders",
         image: dummyPng,
-        href: "/account/addresses"
+        href: "/account/address"
     },
-    {
-        title: "Payment Details",
-        description: "Edit your payment details",
-        image: dummyPng,
-        href: "/account/payment"
-    },
+    // {
+    //     title: "Payment Details",
+    //     description: "Edit your payment details",
+    //     image: dummyPng,
+    //     href: "/account/payment"
+    // },
     {
         title: "Dashboard",
         description: "A short analytics of your activity",
@@ -100,12 +100,6 @@ export const accountPageLinks = [
         title: "Contact Us",
         description: "Get in touch with us",
         image: dummyPng,
-        href: "/account/contact-us"
-    },
-    {
-        title: "Logout",
-        description: "Logout from the application",
-        image: dummyPng,
-        href: "/account/logout"
+        href: "/contact-us"
     }
 ];

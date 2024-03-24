@@ -2,11 +2,11 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import Image from "next/image";
-import { product } from "@/development/mocks/productDetails";
 import { breakpointsForProductImagesGroup } from "@/constants/swiper-breakpoints";
+import { ProductType } from "@/types";
+import { dummy } from "@/development/dummy";
 
-const ProductImages = () => {
+const ProductImages = ({ product }: { product: ProductType }) => {
     const [thumbsSwiper, setThumbsSwiper]: any = React.useState(null);
 
     return (
@@ -15,8 +15,6 @@ const ProductImages = () => {
                 <Swiper
                     spaceBetween={10}
                     slidesPerView={1}
-                    onSlideChange={() => console.log("slide change")}
-                    onSwiper={(swiper) => console.log(swiper)}
                     navigation={true}
                     modules={[Navigation, Thumbs]}
                     className="mySwiper2"
@@ -24,14 +22,15 @@ const ProductImages = () => {
                     thumbs={{ swiper: thumbsSwiper }}
                 >
                     {
-                        product.pictures.map((picture, index) => (
+                        product?.pictures?.map((picture, index) => (
                             <SwiperSlide key={index}>
-                                <Image
+                                <img
                                     width={600}
                                     height={300}
                                     className="h-[450px] lg:h-[450px] w-full object-cover md:object-contain"
-                                    src={picture}
-                                    alt={product.name}
+                                    src={picture || dummy}
+                                    alt={product?.name}
+                                    loading="lazy"
                                 />
                             </SwiperSlide>
                         ))
@@ -42,7 +41,6 @@ const ProductImages = () => {
                 <Swiper
                     spaceBetween={1}
                     slidesPerView={6}
-                    onSlideChange={() => console.log("slide change")}
                     navigation={true}
                     modules={[FreeMode, Navigation, Thumbs]}
                     className="mySwiper product-images-group"
@@ -51,14 +49,14 @@ const ProductImages = () => {
                     breakpoints={breakpointsForProductImagesGroup}
                 >
                     {
-                        product.pictures.map((picture, index) => (
+                        product?.pictures?.map((picture, index) => (
                             <SwiperSlide key={index}>
-                                <Image
+                                <img
                                     width={100}
                                     height={100}
                                     className="w-[80px] md:w-[100px] object-cover md:object-contain"
                                     src={picture}
-                                    alt={product.name}
+                                    alt={product?.name}
                                 />
                             </SwiperSlide>
                         ))

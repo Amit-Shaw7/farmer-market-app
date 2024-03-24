@@ -3,8 +3,11 @@ import ApiResponse from "../../utils/apiResponse.js";
 import asyncHandler from "../../utils/asyncHandler.js";
 
 const getProductsWhenAuthenticationNotDone = asyncHandler(async (req, res, next) => {
+    let { category } = req.query;
+    category = category?.toUpperCase();
     const products = await Product.find({
-        sellerType: { $in: ['FARMER'] }
+        sellerType: { $in: ['FARMER'] },
+        category: { $eq: category }
     });
 
     const status = 200;

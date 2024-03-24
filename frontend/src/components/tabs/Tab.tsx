@@ -1,7 +1,5 @@
-import { dummy } from "@/development/dummy";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+// import { dummy } from "@/development/dummy";
+import { Link } from "react-router-dom";
 
 interface TabProps {
     selected?: boolean,
@@ -12,7 +10,7 @@ interface TabProps {
 
 const Tab = ({ selected, href, image, name }: TabProps) => {
     return (
-        <Link href={href} className="w-full">
+        <Link to={href} className="w-full">
             <div
                 id={`tab-${name}`}
                 className={`
@@ -28,7 +26,7 @@ const Tab = ({ selected, href, image, name }: TabProps) => {
             >
                 {image
                     &&
-                    <Image
+                    <img
                         src={image}
                         alt={name || "Some img"}
                         height={50}

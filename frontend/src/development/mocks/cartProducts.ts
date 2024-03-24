@@ -1,0 +1,26 @@
+export const cartProducts = [
+    {
+        _id: "62b0c2d6a0f3c6cb0a8a8a8b",
+        name: 'Tractor',
+        description: 'A powerful farming tractor.',
+        price: 500000,
+        pictures: ['https://example.com/tractor1.jpg', 'https://example.com/tractor2.jpg'],
+        stock: 50,
+        keyFeatures: ['High Horsepower', 'Efficient Fuel Consumption'],
+        category: 'MACHINES',
+        sellerType: "DEALER",
+        sellerId: '5d378db134e20b4d7e6f2960',
+    },
+    {
+        _id: "62b0c2d6a0f3c6cb0a8a8a8c",
+        name: 'Harvester',
+        description: 'Automated crop harvester for efficient farming.',
+        price: 800000,
+        pictures: ['https://example.com/harvester1.jpg', 'https://example.com/harvester2.jpg'],
+        stock: 30,
+        keyFeatures: ['Crop Cutting Technology', 'Auto Navigation'],
+        category: 'MACHINES',
+        sellerType: "DEALER",
+        sellerId: '5d378db134e20b4d7e6f2960',
+    },
+]

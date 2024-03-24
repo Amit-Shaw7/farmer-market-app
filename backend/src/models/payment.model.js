@@ -14,6 +14,16 @@ const PaymentSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: "User"
+        },
+        orderId: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: "Order"
+        }
     },
     {
         timestamps: true

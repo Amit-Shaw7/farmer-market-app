@@ -5,36 +5,40 @@ import isIDGood from "../../utils/isIdGood.js";
 
 const getProductsWhenAuthenticationDone = asyncHandler(async (req, res, next) => {
     const userId = await isIDGood(req.userId);
+    const { category } = req.query;
     const { role } = req;
 
     let products = [];
 
     if (role === 'SHOPKEEPER') {
         // Only show products added by Shopkeepers
-        products = await Product.find({ 
-            sellerType: { $in: ['FARMER'] } 
+        products = await Product.find({
+            sellerType: { $in: ['FARMER'] },
+            category: { $in: [category] },
         }).exec();
-    } 
-    
+    }
+
     else if (role === 'FARMER') {
         // Show products added by Dealers and Shopkeepers
         products = await Product.find({
-            sellerType: { $in: ['DEALER', 'FARMER'] }
+            sellerType: { $in: ['DEALER', 'FARMER'] },
+            category: { $in: [category] },
         }).exec();
-    } 
-    
+    }
+
     else if (role === 'DEALER') {
         // Only show products added by Dealers
-        products = await Product.find({ 
-            sellerType: { $in: ['DEALER'] } 
+        products = await Product.find({
+            sellerType: { $in: ['DEALER'] },
+            category: { $in: [category] },
         }).exec();
-    } 
-    
+    }
+
     const status = 200;
     return res.status(status).json(
-        new ApiResponse(status , products , "Products fetched successfully")
-    ) 
-    
+        new ApiResponse(status, products, "Products fetched successfully")
+    )
+
 });
 
 export default getProductsWhenAuthenticationDone;

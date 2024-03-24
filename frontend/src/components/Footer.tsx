@@ -1,5 +1,3 @@
-import React from "react";
-import Image from "next/image";
 import Logo from "@/components/Logo";
 import Container from "@/components/Container";
 import { footerLinks, socialLinks } from "@/constants/links";
@@ -25,15 +23,13 @@ const Footer = () => {
               socialLinks.map((link) => (
                 <li key={link.href}>
                   <a href={link.href} target="_blank" rel="noopener noreferrer">
-                    <Image
+                    <img
                       src={link.imgurl}
                       alt={link.name}
                       width={25}
                       height={25}
                       className="w-[25px] h-[25px]"
-                      priority
-                      unoptimized
-                      quality={100}
+                      loading="lazy"
                     />
                   </a>
                 </li>
